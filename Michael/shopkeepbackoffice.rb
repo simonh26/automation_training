@@ -18,5 +18,26 @@ password.send_keys 'M3ldrews!'
 
 button = driver.find_element(id: 'submit')
 button.click
+
+driver.navigate.to 'https://www.getshopkeep.com/stock_items/new'
+
+itemname = driver.find_element(id: 'stock_item_description')
+itemname.send_keys 'Doner Kebab 6'
+
+itemprice = driver.find_element(id: 'stock_item_price')
+itemprice.clear
+itemprice.send_keys ('6.49')
+
+taxable = driver.find_element(id: 'stock_item_taxable')
+select_list = Selenium::WebDriver::Support::Select.new(taxable)
+select_list.select_by(:value, '0')
+
+
+
+submititem = driver.find_element(id: 'stock_item_submit')
+submititem.click
+
+driver.find_element(id: 'notice').text.include? 'Item was successfully created.'
+
 driver.quit
 
