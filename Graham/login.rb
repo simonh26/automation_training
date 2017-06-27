@@ -17,7 +17,7 @@ class Login
   driver.find_element('name','password').send_keys('password1234')
   driver.find_element('name','commit').click
   driver.get'https://www.getshopkeep.com/stock_items/new'
-  driver.find_element('id','stock_item_description').send_keys('Test Item12356')
+  driver.find_element('id','stock_item_description').send_keys('Test Item A')
 
   # @helpers.select_dropdown('stock_item_category_id', 'value')
   dropDownMenu = driver.find_element(:id, 'stock_item_department_id')
@@ -39,11 +39,9 @@ class Login
 
   driver.get'https://www.getshopkeep.com/ipad-layout'
   driver.find_element('xpath',"//span[contains(., 'Page 3')]").click
-  source=driver.find_element('xpath', "//span[contains(., 'Test Item12356')]")
+  source=driver.find_element('xpath', "//span[contains(., 'Test Item A')]")
   destination= driver.find_element('xpath', "//div[@class='button_page']/div[@class='si-placeholder ui-droppable'][8]")
-  driver.action.click_and_hold(source).perform
-  sleep 2
-  driver.action.move_to(destination).release.perform
+  driver.action.click_and_hold(source).move_to(destination).release.perform
   sleep 5
   puts 'TESTESTTEST'
 end
