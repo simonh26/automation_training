@@ -74,12 +74,13 @@ driver.find_element(id:'current').text.include? '10 (+ 0 in kits)'
   sleep(5)
 
   #find item and add modifier
-#driver.navigate.to 'https://www.getshopkeep.com/stock_items'
-  #search_text = driver.find_element(xpath:"//div[@class='stock_item_search']")
-  #sleep(duration 2)
-  #search_text.send_keys mikes_item
-  #sleep(5)
+driver.navigate.to 'https://www.getshopkeep.com/stock_items'
+search_field= driver.find_element('xpath',"//input[@type='search']")
+  search_field.send_keys mikes_item
 
+  #select row
+  driver.find_element(:xpath,"//tr[@role='row']/td[contains(text(),'#{mikes_item}')]").click
+  driver.find_element(:xpath,"//a[contains(@href, '/modifiers')]").click
 
   if i == 3
     break
