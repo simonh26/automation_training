@@ -2,11 +2,6 @@ require 'selenium-webdriver'
 driver = Selenium::WebDriver.for :chrome
 driver.manage.timeouts.implicit_wait = 10
 driver.navigate.to 'http://www.getshopkeep.com'
-
-rand_number = rand(1..5000000000)
-mikes_item = 'Doner Kebab' + rand_number.to_s
-
-
 storename = driver.find_element(id: 'store_name')
 storename.send_keys 'test46722'
 
@@ -23,23 +18,27 @@ password.send_keys 'M3ldrews!'
 
 button = driver.find_element(id: 'submit')
 button.click
+i = 0
+loop do
+  i += 1
+  puts i
 
 #main menu items
 #$x("//li[@class='js-stock-items']")
-driver.find_element(xpath: "//li[@class='sub-menu items']/a").click
-driver.find_element(xpath: "//li[@class='js-stock-items']/a").click
+#driver.find_element(xpath: "//li[@class='sub-menu items']/a").click
+#driver.find_element(xpath: "//li[@class='js-stock-items']/a").click
 
 driver.navigate.to 'https://www.getshopkeep.com/stock_items'
 driver.find_element(class: 'add-item').click
-
 driver.switch_to. active_element # switch to modal
 driver.find_element(xpath:"//div[@class='item-type-container basic']/button").click #create item
 
 # driver.switch_to. active_element # switch to modal
 # driver.find_element(xpath:"//div[@class='item-type-container variants']/button").click #create variant
 
-# driver.navigate.to 'https://www.getshopkeep.com/stock_items/new'
 
+rand_number = rand(1..5000000000)
+mikes_item = 'Doner Kebab' + rand_number.to_s
 itemname = driver.find_element(id: 'stock_item_description')
 itemname.send_keys mikes_item
 
@@ -72,6 +71,21 @@ quantity = driver.find_element(id:'quantity_input')
 quantity.send_keys '10'
 driver.find_element(id:'add_to_count').click
 driver.find_element(id:'current').text.include? '10 (+ 0 in kits)'
+  sleep(5)
 
+  #find item and add modifier
+#driver.navigate.to 'https://www.getshopkeep.com/stock_items'
+  #search_text = driver.find_element(xpath:"//div[@class='stock_item_search']")
+  #sleep(duration 2)
+  #search_text.send_keys mikes_item
+  #sleep(5)
+
+
+  if i == 3
+    break
+  end
+
+  end
 driver.quit
+
 
