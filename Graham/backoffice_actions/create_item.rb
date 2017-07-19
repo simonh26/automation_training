@@ -35,6 +35,6 @@ class BackofficeActions
     @driver.find_element('id','stock_item_price').send_keys price
 
     @driver.find_element('id','stock_item_submit').click
-    @driver.quit
+    @driver.quit 
   end
 end
