@@ -1,14 +1,24 @@
 require 'selenium-webdriver'
-require '../../automation_training/Graham/backoffice_actions/create_item'
+require '../../automation_training/Graham/backoffice_actions/transaction_screen'
 #require 'spec_helper'
 require 'pry'
+require 'rspec/core'
+require 'rspec/expectations'
 
 class Login
+  @transactionsearch = TransactionSearch.new
+  @transactionsearch.verify_transaction
 
-  @backoffice_helper = BackofficeActions.new
-  ['1','2','3','4','5'].each.with_index(1) do|stockitems1, index|
-  @backoffice_helper.create_new_item_backoffice stockitems1, index + 20
-end
+
+
+
+
+
+  #
+  # @backoffice_helper = BackofficeActions.new
+  # ['1','2','3','4','5'].each.with_index(1) do|stockitems1, index|
+  # @backoffice_helper.create_new_item_backoffice stockitems1, index + 20
+# end
 
 
   # driver.get'https://www.getshopkeep.com/ipad-layout'
