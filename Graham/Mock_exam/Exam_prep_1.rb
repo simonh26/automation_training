@@ -1,6 +1,7 @@
 require 'selenium-webdriver'
 
 class ExamPrep
+
   @driver = Selenium::WebDriver.for :chrome
   @driver.get 'http://www.getshopkeep.com'
   @driver.find_element('id','store_name').send_keys('test87907')
@@ -20,5 +21,4 @@ class ExamPrep
   puts customer_walk_in_trans
   result = customer_walk_in_trans.include?("Unit Price Item Dept A")
   puts result
-
 end
