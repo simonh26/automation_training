@@ -36,6 +36,7 @@ rand_number = rand(1..5000000000)
 rand_number_price = rand(1..100)
 @create_item.create_item rand_number,rand_number_price,'0',3
 
+#GitHub training test
 
 # driver.find_element(xpath: "//li[@class='sub-menu items']/a").click
 # driver.find_element(xpath: "//li[@class='js-stock-items']/a").click
