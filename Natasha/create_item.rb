@@ -16,7 +16,7 @@ class CreateItem
 
   def item_name(random_number)
     item_description = @driver.find_element(id: 'stock_item_description')
-    item_description.send_keys "Basic Item" + random_number.to_s
+    item_description.send_keys "Basic Item Test" + random_number.to_s
   end
 
   def item_price(random_number_price)
